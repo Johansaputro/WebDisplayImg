@@ -12,6 +12,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Tell express where to serve static files from
 app.use(express.static(__dirname + '/public'));
+app.set('views', './views');
+app.set("view engine", "ejs");
 
 // Connect to DB
 var db = mysql.createPool({
@@ -24,6 +26,10 @@ var db = mysql.createPool({
 
 var multer = require('multer');
 var upload = multer({dest: './uploads/'});
+
+app.get('/', function(req, res) {
+  res.render('index');
+});
 
 app.post('/', upload.single('image'), function(request, respond) {
     if(request.file) console.log(request.file);
