@@ -41,7 +41,7 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 app.get('/', function(req, res) {
-  fs.readdir(__dirname + '/public/img', (err, files) => {
+  fs.readdirSync(__dirname + '/public/img', (err, files) => {
   if (err)
     console.log(err);
   else {
