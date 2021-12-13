@@ -61,8 +61,9 @@ else {
     // console.log(file);
     imgName.push(file);
   });
+  imgName.pop();
   console.log(imgName);
-  console.log(typeof imgName[0]);
+  // console.log(typeof imgName[0]);
 };
 });
 

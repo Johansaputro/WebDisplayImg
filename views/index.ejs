@@ -5,15 +5,18 @@
       <% console.log(nameArray); %>
           <% for (var i=0; i<nameArray.length; i++) { %>
             <div class="row">
-            <% 	if(typeof nameArray[i] !== "undefined" || nameArray[i] !== "logo") {%>
-              <div class="col-md-4">
-                <p> tes </p>
-                <img src="/img/<%=nameArray[i]%>">
+            <% 	if(typeof nameArray[i] !== "undefined") {%>
+              <div class="card col-md-4">
+                <img class="card-img-top" src="/img/<%=nameArray[i]%>">
               </div> <% }; %>
-            <% 	if(typeof nameArray[i+1] !== "undefined" || nameArray[i+1] !== "logo") {%>
-              <div class="col-md-4"><img src="img/<%=nameArray[i+1]%>"></div> <% }; %>
-            <% 	if(typeof nameArray[i+2] !== "undefined" || nameArray[i+2] !== "logo") {%>
-              <div class="col-md-4"><img src="img/<%=nameArray[i+2]%>"></div> <% }; %>
+            <% 	if(typeof nameArray[i+1] !== "undefined") {%>
+              <div class="card col-md-4">
+                <img class="card-img-top" src="img/<%=nameArray[i+1]%>">
+              </div> <% }; %>
+            <% 	if(typeof nameArray[i+2] !== "undefined") {%>
+              <div class="card col-md-4">
+                <img class="card-img-top" src="img/<%=nameArray[i+2]%>">
+              </div> <% }; %>
               <% i = i + 2 ;%>
             </div>
             <% }; %>
