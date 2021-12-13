@@ -6,7 +6,10 @@
             <% console.log(nameArray[i]); %>
             <div class="row">
             <% 	if(typeof nameArray[i] !== "undefined" || nameArray[i] !== "logo") {%>
-              <div class="col-md-4"><img src="/img/<%=nameArray[i]%>"></div> <% }; %>
+              <div class="col-md-4">
+                <p> tes </p>
+                <img src="/img/<%=nameArray[i]%>">
+              </div> <% }; %>
             <% 	if(typeof nameArray[i+1] !== "undefined" || nameArray[i+1] !== "logo") {%>
               <div class="col-md-4"><img src="img/<%=nameArray[i+1]%>"></div> <% }; %>
             <% 	if(typeof nameArray[i+2] !== "undefined" || nameArray[i+2] !== "logo") {%>
