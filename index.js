@@ -1,13 +1,16 @@
 var express  = require('express');
 var mysql = require('mysql');
 var bodyParser = require('body-parser');
+var fs = require('fs');
 
 var multer = require('multer');
 var upload = multer({dest: './public/img/'});
 
 var app = express();
+var imgName = [];
 
 // Config
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Tell express where to serve static files from
@@ -38,8 +41,37 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 app.get('/', function(req, res) {
-  res.render('index');
+  fs.readdir(__dirname + '/public/img', (err, files) => {
+  if (err)
+    console.log(err);
+  else {
+    console.log("\nCurrent directory filenames:");
+    files.forEach(file => {
+      console.log(file);
+      imgName.push(file);
+    })
+  }
 });
+  res.render('index', {nameArray: imgName});
+});
+
+// app.get('/', function(req, res) {
+//   res.render('ekg');
+// });
+//
+// app.get('/getekg', function(req, res) {
+//
+// });
+//
+// app.post('/postekg', function(req, res) {
+//   let parsedContent = JSON.parse(req.query);
+//   let data = req.body.payload;
+//   db.query("INSERT INTO EKG (Voltage) VALUES (?)",[data], function(err,rs) {
+//     if (err) throw err;
+//     // console.log("Sequence updated")
+//   });
+//   res.status(204).send();
+// });
 
 app.post('/', upload.single('image'), function(request, respond) {
     if(request.file) console.log(request.file.filename);
