@@ -40,32 +40,33 @@ var storage = multer.diskStorage({
 });
 
 var upload = multer({ storage: storage });
-var options = {
-  cwd: "/public/img/"
-};
+// var options = {
+//   cwd: "/public/img/"
+// };
+//
+// glob("**/*.jpg", options ,function (er, files) {
+//   if (er) throw er;
+//   else {
+//     imgName = files;
+//     console.log(imgName);
+//   };
+// });
 
-glob("**/*.jpg", options ,function (er, files) {
-  if (er) throw er;
-  else {
-    imgName = files;
-    console.log(imgName);
-  };
+fs.readdirSync(__dirname + '/public/img', (err, files) => {
+if (err)
+  console.log(err);
+else {
+  console.log("\nCurrent directory filenames:");
+  files.forEach(file => {
+    // console.log(file);
+    imgName.push(file);
+  });
+  console.log(imgName);
+  console.log(typeof imgName[0]);
+};
 });
 
 app.get('/', function(req, res) {
-//   fs.readdirSync(__dirname + '/public/img', (err, files) => {
-//   if (err)
-//     console.log(err);
-//   else {
-//     console.log("\nCurrent directory filenames:");
-//     files.forEach(file => {
-//       // console.log(file);
-//       imgName.push(file);
-//     });
-//     console.log(imgName);
-//     console.log(typeof imgName[0]);
-//   };
-// });
   res.render('index', {nameArray: imgName});
 });
 
