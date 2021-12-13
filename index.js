@@ -27,7 +27,7 @@ var upload = multer({dest: './uploads/'});
 
 app.post('/', upload.single('image'), function(request, respond) {
     if(request.file) console.log(request.file);
-};
+});
 
 app.listen(process.env.PORT || 3000, function(){
   console.log("Server started on port 3000");
