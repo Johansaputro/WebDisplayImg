@@ -24,15 +24,25 @@ var db = mysql.createPool({
   database: "steering"
 })
 
-var multer = require('multer');
-var upload = multer({dest: './uploads/'});
+// var multer = require('multer');
+// var upload = multer({dest: './public/img/'});
+var storage = multer.diskStorage({
+    destination: function (req, file, callback) {
+        callback(null, './public/img');
+    },
+    filename: function (req, file, callback) {
+        callback(null, file.originalname);
+    }
+});
+
+var upload = multer({ storage: storage });
 
 app.get('/', function(req, res) {
   res.render('index');
 });
 
 app.post('/', upload.single('image'), function(request, respond) {
-    if(request.file) console.log(request.file);
+    if(request.file) console.log(request.file.filename);
     respond.status(204).send();
 });
 
