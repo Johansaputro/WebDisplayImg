@@ -47,8 +47,9 @@ app.get('/', function(req, res) {
   else {
     console.log("\nCurrent directory filenames:");
     files.forEach(file => {
-      console.log(file);
+      // console.log(file);
       imgName.push(file);
+      console.log(imgName);
     })
   }
 });
