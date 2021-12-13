@@ -40,8 +40,11 @@ var storage = multer.diskStorage({
 });
 
 var upload = multer({ storage: storage });
+var options = {
+  cwd: "/public/img/"
+};
 
-glob(__dirname + "/public/img/*.jpg", function (er, files) {
+glob("**/*.jpg", options ,function (er, files) {
   if (er) throw er;
   else {
     imgName = files;
