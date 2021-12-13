@@ -49,9 +49,10 @@ app.get('/', function(req, res) {
     files.forEach(file => {
       // console.log(file);
       imgName.push(file);
-      console.log(imgName);
-    })
-  }
+    });
+    console.log(imgName);
+    console.log(typeof imgName[0]);
+  };
 });
   res.render('index', {nameArray: imgName});
 });
