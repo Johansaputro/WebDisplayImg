@@ -41,6 +41,14 @@ var storage = multer.diskStorage({
 
 var upload = multer({ storage: storage });
 
+glob(__dirname + "/public/img/*.jpg", function (er, files) {
+  if (er) throw er;
+  else {
+    imgName = files;
+    console.log(imgName);
+  };
+});
+
 app.get('/', function(req, res) {
 //   fs.readdirSync(__dirname + '/public/img', (err, files) => {
 //   if (err)
@@ -55,13 +63,6 @@ app.get('/', function(req, res) {
 //     console.log(typeof imgName[0]);
 //   };
 // });
-  glob("**/*.jpg", function (er, files) {
-    if (er) throw er;
-    else {
-      imgName = files;
-      console.log(imgName);
-    };
-  });
   res.render('index', {nameArray: imgName});
 });
 
