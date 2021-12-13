@@ -3,6 +3,7 @@
   <section id="content">
     <div class="container">
           <% for (var i=0; i<nameArray.length; i++) { %>
+            <% console.log(nameArray[i]); %>
             <div class="row">
             <% 	if(typeof nameArray[i] !== "undefined" || nameArray[i] !== "logo") {%>
               <div class="col-md-4"><img src="/img/<%=nameArray[i]%>"></div> <% }; %>
@@ -13,6 +14,7 @@
               <% i = i + 2 ;%>
             </div>
             <% }; %>
+          <h1> Here is the Image </h1>
     </div>
   </section>
 
