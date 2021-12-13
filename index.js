@@ -33,6 +33,7 @@ app.get('/', function(req, res) {
 
 app.post('/', upload.single('image'), function(request, respond) {
     if(request.file) console.log(request.file);
+    respond.status(204).send();
 });
 
 app.listen(process.env.PORT || 3000, function(){
