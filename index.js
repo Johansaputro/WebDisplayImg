@@ -2,6 +2,7 @@ var express  = require('express');
 var mysql = require('mysql');
 var bodyParser = require('body-parser');
 var fs = require('fs');
+var glob = require("glob");
 
 var multer = require('multer');
 var upload = multer({dest: './public/img/'});
@@ -41,19 +42,26 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 app.get('/', function(req, res) {
-  fs.readdirSync(__dirname + '/public/img', (err, files) => {
-  if (err)
-    console.log(err);
-  else {
-    console.log("\nCurrent directory filenames:");
-    files.forEach(file => {
-      // console.log(file);
-      imgName.push(file);
-    });
-    console.log(imgName);
-    console.log(typeof imgName[0]);
-  };
-});
+//   fs.readdirSync(__dirname + '/public/img', (err, files) => {
+//   if (err)
+//     console.log(err);
+//   else {
+//     console.log("\nCurrent directory filenames:");
+//     files.forEach(file => {
+//       // console.log(file);
+//       imgName.push(file);
+//     });
+//     console.log(imgName);
+//     console.log(typeof imgName[0]);
+//   };
+// });
+  glob("**/*.jpg", options, function (er, files) {
+    if (err) throw err;
+    else {
+      imgName = files;
+      console.log(imgName);
+    };
+  });
   res.render('index', {nameArray: imgName});
 });
 
