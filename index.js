@@ -56,7 +56,7 @@ app.get('/', function(req, res) {
 //   };
 // });
   glob("**/*.jpg", function (er, files) {
-    if (err) throw err;
+    if (er) throw er;
     else {
       imgName = files;
       console.log(imgName);
