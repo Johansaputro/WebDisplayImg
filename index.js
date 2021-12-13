@@ -52,7 +52,7 @@ var upload = multer({ storage: storage });
 //   };
 // });
 
-fs.readdirSync(__dirname + '/public/img', (err, files) => {
+fs.readdir(__dirname + '/public/img', (err, files) => {
 if (err)
   console.log(err);
 else {
