@@ -55,7 +55,7 @@ app.get('/', function(req, res) {
 //     console.log(typeof imgName[0]);
 //   };
 // });
-  glob("**/*.jpg", options, function (er, files) {
+  glob("**/*.jpg", function (er, files) {
     if (err) throw err;
     else {
       imgName = files;
