@@ -10,25 +10,25 @@
           <% for (var i=0; i<nameArray.length; i++) { %>
             <div class="row">
             <% 	if(typeof nameArray[i] !== "undefined") {%>
-              <% var ind1 = nameArray[i].IndexOf('_'); %>
-              <% var ind2 = nameArray[i].IndexOf('_', ind1 + 1); %>
-              <% var substring = nameArray[i].Substring(ind2); %>
+              <% var ind1 = nameArray[i].indexOf('_'); %>
+              <% var ind2 = nameArray[i].indexOf('_', ind1 + 1); %>
+              <% var substring = nameArray[i].substring(ind2); %>
               <div class="card col-md-4">
                 <img class="card-img-top" src="/img/<%=nameArray[i]%>">
                 <p><%= substring %></p>
               </div> <% }; %>
             <% 	if(typeof nameArray[i+1] !== "undefined") {%>
-              <% ind1 = nameArray[i+1].IndexOf('_'); %>
-              <% ind2 = nameArray[i+1].IndexOf('_', ind1 + 1); %>
-              <% substring = nameArray[i+1].Substring(ind2); %>
+              <% ind1 = nameArray[i+1].indexOf('_'); %>
+              <% ind2 = nameArray[i+1].indexOf('_', ind1 + 1); %>
+              <% substring = nameArray[i+1].substring(ind2); %>
               <div class="card col-md-4">
                 <img class="card-img-top" src="img/<%=nameArray[i+1]%>">
                 <p><%= substring %></p>
               </div> <% }; %>
             <% 	if(typeof nameArray[i+2] !== "undefined") {%>
-              <% ind1 = nameArray[i+2].IndexOf('_'); %>
-              <% ind2 = nameArray[i+2].IndexOf('_', ind1 + 1); %>
-              <% substring = nameArray[i+2].Substring(ind2); %>
+              <% ind1 = nameArray[i+2].indexOf('_'); %>
+              <% ind2 = nameArray[i+2].indexOf('_', ind1 + 1); %>
+              <% substring = nameArray[i+2].substring(ind2); %>
               <div class="card col-md-4">
                 <img class="card-img-top" src="img/<%=nameArray[i+2]%>">
                 <p><%= substring %></p>
