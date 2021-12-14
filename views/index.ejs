@@ -2,25 +2,41 @@
 
   <section id="content">
     <div class="container">
-      <% console.log(nameArray); %>
+      <iframe width="420" height="315" src="https://www.youtube.com/watch?v=DJjZj5UnZXU&ab_channel=Helsionium"></iframe>
+      <h2> Video Self-Driving-Car</h2>
+    </div>
+    <div class="container">
+      <h1> Training Image from Raspberry Pi </h1>
+      <%# <% console.log(nameArray); %> %>
           <% for (var i=0; i<nameArray.length; i++) { %>
             <div class="row">
             <% 	if(typeof nameArray[i] !== "undefined") {%>
+              <% var ind1 = nameArray[i].IndexOf('_'); %>
+              <% var ind2 = nameArray[i].IndexOf('_', ind1 + 1); %>
+              <% var substring = nameArray[i].Substring(ind2); %>
               <div class="card col-md-4">
                 <img class="card-img-top" src="/img/<%=nameArray[i]%>">
+                <p><%= substring %></p>
               </div> <% }; %>
             <% 	if(typeof nameArray[i+1] !== "undefined") {%>
+              <% ind1 = nameArray[i+1].IndexOf('_'); %>
+              <% ind2 = nameArray[i+1].IndexOf('_', ind1 + 1); %>
+              <% substring = nameArray[i+1].Substring(ind2); %>
               <div class="card col-md-4">
                 <img class="card-img-top" src="img/<%=nameArray[i+1]%>">
+                <p><%= substring %></p>
               </div> <% }; %>
             <% 	if(typeof nameArray[i+2] !== "undefined") {%>
+              <% ind1 = nameArray[i+2].IndexOf('_'); %>
+              <% ind2 = nameArray[i+2].IndexOf('_', ind1 + 1); %>
+              <% substring = nameArray[i+2].Substring(ind2); %>
               <div class="card col-md-4">
                 <img class="card-img-top" src="img/<%=nameArray[i+2]%>">
+                <p><%= substring %></p>
               </div> <% }; %>
               <% i = i + 2 ;%>
             </div>
             <% }; %>
-          <h1> Here is the Image </h1>
     </div>
   </section>
 
