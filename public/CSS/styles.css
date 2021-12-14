@@ -43,6 +43,10 @@ body{
 
 /* content */
 
+h1 {
+  text-align: center;
+}
+
 .vidcontent {
   text-align: center;
 }
