@@ -7,6 +7,9 @@
   height: 75%;
 }
 
+.navbar-toggler-icon {
+  color: white;
+}
 
 .nav-link {
   color: #fff;
