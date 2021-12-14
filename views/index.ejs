@@ -1,9 +1,8 @@
 <%- include('header'); -%>
-
   <section id="content">
-    <div class="container">
+    <div class="container vidcontent">
       <h2> Video Self-Driving-Car</h2>
-      <iframe width="420" height="315" src="https://youtube.com/embed/DJjZj5UnZXU"></iframe>
+      <iframe width="420" height="315" src="https://youtube.com/embed/SzU-jXJ3z64"></iframe>
     </div>
     <div class="container">
       <h1> Training Image from Raspberry Pi </h1>
@@ -15,7 +14,7 @@
               <% var substring = nameArray[i].substring(ind2); %>
               <div class="card col-md-4">
                 <img class="card-img-top" src="/img/<%=nameArray[i]%>">
-                <p>Steering: <%= substring %></p>
+                <p>Steering: <%= substring.slice(1) %></p>
               </div> <% }; %>
             <% 	if(typeof nameArray[i+1] !== "undefined") {%>
               <% ind1 = nameArray[i+1].indexOf('_'); %>
@@ -23,7 +22,7 @@
               <% substring = nameArray[i+1].substring(ind2); %>
               <div class="card col-md-4">
                 <img class="card-img-top" src="img/<%=nameArray[i+1]%>">
-                <p>Steering: <%= substring %></p>
+                <p>Steering: <%= substring.slice(1) %></p>
               </div> <% }; %>
             <% 	if(typeof nameArray[i+2] !== "undefined") {%>
               <% ind1 = nameArray[i+2].indexOf('_'); %>
@@ -31,7 +30,7 @@
               <% substring = nameArray[i+2].substring(ind2); %>
               <div class="card col-md-4">
                 <img class="card-img-top" src="img/<%=nameArray[i+2]%>">
-                <p>Steering: <%= substring %></p>
+                <p>Steering: <%= substring.slice(1) %></p>
               </div> <% }; %>
               <% i = i + 2 ;%>
             </div>

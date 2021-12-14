@@ -2,7 +2,6 @@ var express  = require('express');
 var mysql = require('mysql');
 var bodyParser = require('body-parser');
 var fs = require('fs');
-var glob = require("glob");
 
 var multer = require('multer');
 var upload = multer({dest: './public/img/'});
