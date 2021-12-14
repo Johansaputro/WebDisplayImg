@@ -47,13 +47,16 @@ h1 {
   text-align: center;
 }
 
-p {
+.explanation {
   text-align: center;
+  margin-bottom: 5%;
 }
 
 .vidcontent {
   text-align: center;
 }
+
+
 
 .card-img-top {
   width: 100%;
